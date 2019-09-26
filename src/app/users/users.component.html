@@ -1,0 +1,42 @@
+<h2>Users List</h2> (Click position to edit)
+
+<!--List section-->
+<ul>
+  <li *ngFor="let user of users" (click)="onSelect(user)">
+    <span>{{user.id}}</span> {{user.username}}
+  </li>
+</ul>
+<!--List actions-->
+<div>
+  <button (click)="onAdd()">add </button>
+</div>
+
+<!--Details section-->
+<div *ngIf="selectedUser">
+  <h2>{{selectedUser.username}} details</h2>
+  <div><span>id: </span>{{selectedUser.id}}</div>
+  <div><span>first name: </span>{{selectedUser.firstName}}</div>
+  <div><span>last name: </span>{{selectedUser.lastName}}</div>
+  <br>
+  <div>
+    <label>login:
+      <input [(ngModel)]="selectedUser.username" placeholder="login"/>
+    </label>
+  </div>
+  <div>
+    <label>password:
+      <input [(ngModel)]="selectedUser.password" placeholder="password"/>
+    </label>
+  </div>
+  <div>
+    <label>first name:
+      <input [(ngModel)]="selectedUser.firstName" placeholder="first name"/>
+    </label>
+  </div>
+  <div>
+    <label>last name:
+      <input [(ngModel)]="selectedUser.lastName" placeholder="last name"/>
+    </label>
+  </div>
+</div>
+
